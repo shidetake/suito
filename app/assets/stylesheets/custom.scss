@@ -202,3 +202,27 @@ input {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+/* transactions */
+
+.transactions {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .content {
+    margin-left: 10px;
+  }
+  .timestamp {
+    color: $gray-light;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}

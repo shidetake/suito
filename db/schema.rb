@@ -10,26 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180512134018) do
+ActiveRecord::Schema.define(version: 20180615145401) do
 
-  create_table "microposts", force: :cascade do |t|
+  create_table "transactions", force: :cascade do |t|
+    t.integer "zaim_id"
+    t.integer "group_id"
+    t.boolean "valid_record"
     t.text "content"
+    t.integer "yen"
+    t.float "rate"
+    t.integer "category_id"
+    t.integer "genre_id"
+    t.integer "source_id"
+    t.integer "store_id"
+    t.integer "person_id"
+    t.text "memo"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "picture"
-    t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
-    t.index ["user_id"], name: "index_microposts_on_user_id"
-  end
-
-  create_table "relationships", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followed_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["followed_id"], name: "index_relationships_on_followed_id"
-    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
-    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
