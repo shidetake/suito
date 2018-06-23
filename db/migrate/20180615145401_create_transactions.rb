@@ -9,7 +9,7 @@ class CreateTransactions < ActiveRecord::Migration[5.1]
       t.float :rate
       t.integer :source_id
       t.integer :store_id
-      t.integer :person_id
+      t.integer :wallet_id
       t.text :memo
       t.references :user, foreign_key: true
       t.references :category, foreign_key: true

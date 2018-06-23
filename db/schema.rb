@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20180620135213) do
     t.float "rate"
     t.integer "source_id"
     t.integer "store_id"
-    t.integer "person_id"
+    t.integer "wallet_id"
     t.text "memo"
     t.integer "user_id"
     t.integer "category_id"

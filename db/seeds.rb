@@ -42,7 +42,7 @@ users = User.order(:created_at).take(6)
                               category_id: rand(1..8),
                               source_id: 0,
                               store_id: 0,
-                              person_id: 0,
+                              wallet_id: 0,
                               memo: 'memo'
                              )
   end
