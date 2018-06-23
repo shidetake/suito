@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180623060617) do
+ActiveRecord::Schema.define(version: 20180623061129) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -43,13 +43,13 @@ ActiveRecord::Schema.define(version: 20180623060617) do
     t.text "content"
     t.integer "yen"
     t.float "rate"
-    t.integer "wallet_id"
     t.text "memo"
     t.integer "user_id"
     t.integer "category_id"
     t.integer "group_id"
     t.integer "source_id"
     t.integer "store_id"
+    t.integer "wallet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_transactions_on_category_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20180623060617) do
     t.index ["source_id"], name: "index_transactions_on_source_id"
     t.index ["store_id"], name: "index_transactions_on_store_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
+    t.index ["wallet_id"], name: "index_transactions_on_wallet_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,6 +74,12 @@ ActiveRecord::Schema.define(version: 20180623060617) do
     t.string "reset_digest"
     t.datetime "reset_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "wallets", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

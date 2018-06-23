@@ -43,6 +43,10 @@ Source.create!(name: 'MileagePlus')
 Store.create!(name: 'Amazon')
 Store.create!(name: 'サイゼリヤ')
 
+# wallet
+Wallet.create!(name: '自分')
+Wallet.create!(name: '家')
+
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(5)
@@ -56,7 +60,7 @@ users = User.order(:created_at).take(6)
                               category_id: rand(1..8),
                               source_id: rand(1..2),
                               store_id: rand(1..2),
-                              wallet_id: 0,
+                              wallet_id: rand(1..2),
                               memo: 'memo'
                              )
   end
