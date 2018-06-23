@@ -18,6 +18,17 @@ User.create!(name:  "Example User",
                activated_at: Time.zone.now)
 end
 
+food = Category.create!(name: '食費')
+Category.create!(name: '朝ごはん', parent_id: food.id)
+Category.create!(name: '昼ごはん', parent_id: food.id)
+Category.create!(name: '夜ごはん', parent_id: food.id)
+
+hobby = Category.create!(name: '趣味')
+Category.create!(name: '野球', parent_id: hobby.id)
+Category.create!(name: '旅行', parent_id: hobby.id)
+
+Category.create!(name: 'その他')
+
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(5)
@@ -28,8 +39,7 @@ users = User.order(:created_at).take(6)
                               content: content,
                               yen: 100,
                               rate: 1.0,
-                              category_id: 0,
-                              genre_id: 0,
+                              category_id: rand(1..8),
                               source_id: 0,
                               store_id: 0,
                               person_id: 0,

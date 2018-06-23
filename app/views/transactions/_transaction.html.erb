@@ -1,5 +1,7 @@
 <li id="transaction-<%= transaction.id %>">
   <span class="timestamp"><%= l transaction.created_at %></span>
+  <span class="category"><%= transaction.category.parent&.name %></span>
+  <span class="genre"><%= transaction.category.name %></span>
   <span class="content"><%= transaction.content %></span>
   <span class="yen">¥<%= transaction.yen %></span>
   <span class="memo"><%= transaction.memo %></span>
