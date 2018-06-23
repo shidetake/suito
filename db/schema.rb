@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180623050649) do
+ActiveRecord::Schema.define(version: 20180623054343) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -25,23 +25,30 @@ ActiveRecord::Schema.define(version: 20180623050649) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sources", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "transactions", force: :cascade do |t|
     t.integer "zaim_id"
     t.boolean "valid_record"
     t.text "content"
     t.integer "yen"
     t.float "rate"
-    t.integer "source_id"
     t.integer "store_id"
     t.integer "wallet_id"
     t.text "memo"
     t.integer "user_id"
     t.integer "category_id"
     t.integer "group_id"
+    t.integer "source_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_transactions_on_category_id"
     t.index ["group_id"], name: "index_transactions_on_group_id"
+    t.index ["source_id"], name: "index_transactions_on_source_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 

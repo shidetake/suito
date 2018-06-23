@@ -35,6 +35,10 @@ Group.create!(name: '')
 Group.create!(name: 'オーストラリア')
 Group.create!(name: '軽井沢')
 
+# source
+Source.create!(name: '現金')
+Source.create!(name: 'MileagePlus')
+
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(5)
@@ -46,7 +50,7 @@ users = User.order(:created_at).take(6)
                               yen: 100,
                               rate: 1.0,
                               category_id: rand(1..8),
-                              source_id: 0,
+                              source_id: rand(1..2),
                               store_id: 0,
                               wallet_id: 0,
                               memo: 'memo'
