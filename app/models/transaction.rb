@@ -3,4 +3,5 @@ class Transaction < ApplicationRecord
   belongs_to :category
   belongs_to :group
   belongs_to :source
+  belongs_to :store
 end
