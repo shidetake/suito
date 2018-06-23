@@ -18,6 +18,7 @@ User.create!(name:  "Example User",
                activated_at: Time.zone.now)
 end
 
+# category
 food = Category.create!(name: '食費')
 Category.create!(name: '朝ごはん', parent_id: food.id)
 Category.create!(name: '昼ごはん', parent_id: food.id)
@@ -29,12 +30,17 @@ Category.create!(name: '旅行', parent_id: hobby.id)
 
 Category.create!(name: 'その他')
 
+# group
+Group.create!(name: '')
+Group.create!(name: 'オーストラリア')
+Group.create!(name: '軽井沢')
+
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(5)
   users.each do |user|
     user.transactions.create!(zaim_id: 0,
-                              group_id: 0,
+                              group_id: rand(1..3),
                               valid_record: true,
                               content: content,
                               yen: 100,
