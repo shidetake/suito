@@ -1,11 +1,13 @@
 <li id="transaction-<%= transaction.id %>">
-  <span class="timestamp"><%= l transaction.created_at %></span>
-  <span class="category"><%= transaction.category.parent&.name %></span>
-  <span class="genre"><%= transaction.category.name %></span>
-  <span class="store"><%= transaction.store.name %></span>
-  <span class="content"><%= transaction.content %></span>
-  <span class="yen">¥<%= transaction.yen %></span>
-  <span class="source"><%= transaction.source.name %></span>
-  <span class="group"><%= transaction.group.name %></span>
-  <span class="memo"><%= transaction.memo %></span>
+  <%= form_for(transaction) do |f| %>
+    <span class="timestamp"><%= l transaction.created_at %></span>
+    <span class="category"><%= f.collection_select :parent_category_id, Category.all, :id, :name %></span>
+    <span class="genre"><%= f.collection_select :category_id, Category.all, :id, :name %></span>
+    <span class="store"><%= f.collection_select :store_id, Store.all, :id, :name %></span>
+    <span class="content"><%= f.text_field :content %></span>
+    <span class="yen">¥<%= f.text_field :yen %></span>
+    <span class="source"><%= f.collection_select :source_id, Source.all, :id, :name %></span>
+    <span class="group"><%= f.collection_select :group_id, Group.all, :id, :name  %></span>
+    <span class="memo"><%= f.text_field :memo %></span>
+  <% end %>
 </li>
