@@ -217,7 +217,9 @@ input {
     }
   }
   .timestamp {
-    color: $gray-light;
+    input {
+      width: 10%
+    }
   }
   .yen {
     input {
