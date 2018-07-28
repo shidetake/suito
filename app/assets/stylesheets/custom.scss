@@ -218,17 +218,22 @@ input {
   }
   .timestamp {
     input {
-      width: 10%
+      width: 7%;
     }
   }
   .yen {
     input {
-      width: 9%;
+      width: 6%;
     }
   }
   .memo {
     input {
-      width: 10%;
+      width: 8%;
+    }
+  }
+  .save {
+    input {
+      width: 4%;
     }
   }
 }
