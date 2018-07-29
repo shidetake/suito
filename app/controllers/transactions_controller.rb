@@ -1,14 +1,13 @@
 class TransactionsController < ApplicationController
   def update
-    user = User.find(params[:id])
     transaction = Transaction.find(params[:transaction][:id])
 
     if transaction.update_attributes(transaction_params)
       flash[:success] = "Transaction updated"
-      redirect_to user
+      redirect_to current_user
     else
       #flash[:danger] = "Transaction updated"
-      redirect_to user
+      redirect_to current_user
     end
   end
 
