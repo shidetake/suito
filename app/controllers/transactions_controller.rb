@@ -1,4 +1,18 @@
 class TransactionsController < ApplicationController
+  def new
+    @transaction = Transaction.new
+  end
+
+  def create
+    @transaction = current_user.transactions.build(transaction_params)
+    if @transaction.save
+      flash[:success] = "Transaction created!"
+      redirect_to current_user
+    else
+      render 'new'
+    end
+  end
+
   def update
     transaction = Transaction.find(params[:transaction][:id])
 
@@ -21,6 +35,7 @@ class TransactionsController < ApplicationController
                                           :yen,
                                           :source_id,
                                           :group_id,
+                                          :wallet_id,
                                           :memo)
     end
 end
