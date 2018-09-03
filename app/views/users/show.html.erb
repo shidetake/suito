@@ -5,7 +5,7 @@
       <h3>Transactions (<%= @transactions.count %>)</h3>
       <%= button_to 'add', new_transaction_path, method: :get, class: "btn btn-primary btn-sm" %>
       <ol class="transactions">
-        <%= render @transactions %>
+        <%= render @transactions.order(created_at: "DESC") %>
       </ol>
       <%= will_paginate @transactions %>
     <% end %>
