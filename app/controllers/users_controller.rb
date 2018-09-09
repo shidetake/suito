@@ -10,7 +10,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     redirect_to root_url and return unless @user.activated?
-    @transactions = @user.transactions.paginate(page: params[:page])
+    @q = @user.transactions.ransack(params[:q])
+    @transactions = @q.result.paginate(page: params[:page]).order(created_at: "DESC")
   end
   
   def new

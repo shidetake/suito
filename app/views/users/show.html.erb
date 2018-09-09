@@ -4,8 +4,15 @@
     <% if @transactions.any? %>
       <h3>Transactions (<%= @transactions.count %>)</h3>
       <%= button_to 'add', new_transaction_path, method: :get, class: "btn btn-primary btn-sm" %>
+      <%= search_form_for @q, url: @user do |f| %>
+
+        <%= f.label :content_cont %>
+        <%= f.search_field :content_cont %>
+
+        <%= f.submit %>
+      <% end %>
       <ol class="transactions">
-        <%= render @transactions.order(created_at: "DESC") %>
+        <%= render @transactions %>
       </ol>
       <%= will_paginate @transactions %>
     <% end %>

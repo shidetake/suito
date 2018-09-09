@@ -18,6 +18,7 @@ gem 'acts_as_tree',                    '2.7.1'
 gem 'momentjs-rails',                  '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'gon'
+gem 'ransack'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
