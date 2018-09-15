@@ -28,7 +28,8 @@ class TransactionsController < ApplicationController
   private
 
     def transaction_params
-      params.require(:transaction).permit(:created_at,
+      params.require(:transaction).permit(:valid_record,
+                                          :created_at,
                                           :category_id,
                                           :store_id,
                                           :content,

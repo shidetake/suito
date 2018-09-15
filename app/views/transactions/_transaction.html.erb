@@ -2,6 +2,7 @@
   <%= form_for(transaction, url: transaction_path ) do |f| %>
     <%= render 'shared/error_messages', object: transaction %>
     <span class="id"><%= f.hidden_field :id, value: transaction.id %></span>
+    <span class="valid_record"><%= f.check_box :valid_record %></span>
     <span class="timestamp">
       <%= f.text_field :created_at, data: { date_format: 'YYYY/MM/DD' }, class: 'datetimepicker', placeholder: 'YYYY/MM/DD' %>
     </span>

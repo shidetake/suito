@@ -5,6 +5,8 @@
     <%= form_for(@transaction) do |f| %>
       <%= render 'shared/error_messages', object: @transaction %>
 
+      <span class="valid_record"><%= f.hidden_field :valid_record, value: true %></span>
+
       <div class="timestamp">
         <%= f.text_field :created_at, data: { date_format: 'YYYY/MM/DD' }, class: 'datetimepicker', placeholder: 'YYYY/MM/DD' %>
       </div>

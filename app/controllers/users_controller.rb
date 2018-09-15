@@ -11,6 +11,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     redirect_to root_url and return unless @user.activated?
     @q = @user.transactions.ransack(params[:q])
+
+    # デフォルトでは有効データだけを表示
+    @q.valid_record_true = 'true' unless params[:q]
+
     @transactions = @q.result.paginate(page: params[:page]).order(created_at: "DESC")
   end
   

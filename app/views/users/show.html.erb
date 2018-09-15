@@ -1,16 +1,38 @@
 <% provide(:title, @user.name) %>
 <div class="row">
   <div class="col-md-12">
+    <%= button_to 'add', new_transaction_path, method: :get, class: "btn btn-primary btn-sm" %>
+    <%= search_form_for @q, url: @user do |f| %>
+      <ul class="search_form">
+        <li>
+          <span class="timestamp">
+            <%= f.label :created_at_gteq, 'date:' %>
+            <%= f.search_field :created_at_gteq, data: { date_format: 'YYYY/MM/DD' }, class: 'datetimepicker', placeholder: 'YYYY/MM/DD' %>
+
+            <%= f.label :created_at_lteq, '〜' %>
+            <%= f.search_field :created_at_lteq, data: { date_format: 'YYYY/MM/DD' }, class: 'datetimepicker', placeholder: 'YYYY/MM/DD' %>
+          </span>
+          /
+          <span class="content">
+            <%= f.label :content_or_memo_cont, 'content:' %>
+            <%= f.search_field :content_or_memo_cont %>
+          </span>
+        </li>
+
+        <li>
+          <span class="valid_record">
+            <%= f.label :valid_record_true, 'valid:' %>
+            <%= f.check_box :valid_record_true, {}, checked_value = 'true', unchecked_value = '' %>
+          </span>
+        </li>
+
+        <li>
+          <%= f.submit %>
+        </li>
+      </ul>
+    <% end %>
     <% if @transactions.any? %>
       <h3>Transactions (<%= @transactions.count %>)</h3>
-      <%= button_to 'add', new_transaction_path, method: :get, class: "btn btn-primary btn-sm" %>
-      <%= search_form_for @q, url: @user do |f| %>
-
-        <%= f.label :content_cont %>
-        <%= f.search_field :content_cont %>
-
-        <%= f.submit %>
-      <% end %>
       <ol class="transactions">
         <%= render @transactions %>
       </ol>

@@ -211,6 +211,11 @@ input {
   select {
     width: 8%;
   }
+  .valid_record {
+    input {
+      width: 1%;
+    }
+  }
   .content {
     input {
       width: 30%;
@@ -218,6 +223,11 @@ input {
   }
   .timestamp {
     input {
+      width: 7%;
+    }
+  }
+  .category {
+    select {
       width: 7%;
     }
   }
@@ -235,6 +245,16 @@ input {
     input {
       width: 4%;
     }
+  }
+}
+
+/* search form */
+.search_form {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  li {
+    overflow: auto;
   }
 }
 
