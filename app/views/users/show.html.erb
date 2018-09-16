@@ -20,6 +20,23 @@
         </li>
 
         <li>
+          <span class="category">
+            <%= f.label :category_id_eq, 'category:' %>
+            <%= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: true %>
+          </span>
+          /
+          <span class="store">
+            <%= f.label :store_id_eq, 'store:' %>
+            <%= f.collection_select :store_id_eq, Store.all, :id, :name, include_blank: true %>
+          </span>
+          /
+          <span class="group">
+            <%= f.label :group_id_eq, 'group:' %>
+            <%= f.collection_select :group_id_eq, Group.all, :id, :name, include_blank: true %>
+          </span>
+        </li>
+
+        <li>
           <span class="valid_record">
             <%= f.label :valid_record_true, 'valid:' %>
             <%= f.check_box :valid_record_true, {}, checked_value = 'true', unchecked_value = '' %>
