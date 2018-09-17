@@ -17,6 +17,7 @@ gem 'rails-i18n',                      '5.1.0'
 gem 'acts_as_tree',                    '2.7.1'
 gem 'momentjs-rails',                  '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+gem 'mysql2',                          '~> 0.3.20'
 gem 'gon'
 gem 'ransack'
 

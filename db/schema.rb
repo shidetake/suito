@@ -10,39 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180623061129) do
+ActiveRecord::Schema.define(version: 20180917000000) do
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.integer "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "groups", force: :cascade do |t|
+  create_table "groups", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "sources", force: :cascade do |t|
+  create_table "sources", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "stores", force: :cascade do |t|
+  create_table "stores", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "transactions", force: :cascade do |t|
+  create_table "transactions", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "zaim_id"
     t.boolean "valid_record"
     t.text "content"
     t.integer "yen"
-    t.float "rate"
+    t.float "rate", limit: 24
     t.text "memo"
     t.integer "user_id"
     t.integer "category_id"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20180623061129) do
     t.index ["wallet_id"], name: "index_transactions_on_wallet_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
@@ -76,10 +76,16 @@ ActiveRecord::Schema.define(version: 20180623061129) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  create_table "wallets", force: :cascade do |t|
+  create_table "wallets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "transactions", "categories"
+  add_foreign_key "transactions", "groups"
+  add_foreign_key "transactions", "sources"
+  add_foreign_key "transactions", "stores"
+  add_foreign_key "transactions", "users"
+  add_foreign_key "transactions", "wallets"
 end
