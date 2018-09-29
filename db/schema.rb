@@ -38,14 +38,14 @@ ActiveRecord::Schema.define(version: 20180917000000) do
   end
 
   create_table "transactions", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "zaim_id"
-    t.boolean "valid_record"
+    t.bigint "zaim_id"
+    t.boolean "valid_record", default: true
     t.text "content"
-    t.integer "yen"
-    t.float "rate", limit: 24
+    t.integer "yen", null: false
+    t.float "rate", limit: 24, default: 1.0
     t.text "memo"
     t.integer "user_id"
-    t.integer "category_id"
+    t.integer "category_id", null: false
     t.integer "group_id"
     t.integer "source_id"
     t.integer "store_id"
