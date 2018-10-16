@@ -2,6 +2,7 @@ class CreateTransactions < ActiveRecord::Migration[5.1]
   def change
     create_table :transactions, id: :integer do |t|
       t.bigint :zaim_id
+      t.string :mf_id, limit: 255
       t.boolean :valid_record, default: 1
       t.text :content
       t.integer :yen, null: false

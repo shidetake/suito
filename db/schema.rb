@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20180917000000) do
 
   create_table "transactions", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "zaim_id"
+    t.string "mf_id"
     t.boolean "valid_record", default: true
     t.text "content"
     t.integer "yen", null: false
