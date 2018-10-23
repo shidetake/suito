@@ -6,9 +6,9 @@
     <span class="timestamp">
       <%= f.text_field :created_at, data: { date_format: 'YYYY/MM/DD' }, class: 'datetimepicker', placeholder: 'YYYY/MM/DD' %>
     </span>
-    <span class="category"><%= f.collection_select :parent_category_id, Category.where(parent: nil), :id, :name %></span>
-    <span class="genre"><%= f.collection_select :category_id, Category.all, :id, :name %></span>
-    <span class="store"><%= f.collection_select :store_id, Store.all, :id, :name %></span>
+    <span class="category"><%= f.text_field :parent_category_name %></span>
+    <span class="genre"><%= f.text_field :category_name %></span>
+    <span class="store"><%= f.text_field :store_name %></span>
     <span class="content"><%= f.text_field :content %></span>
     <span class="yen">¥<%= f.text_field :yen %></span>
     <span class="source"><%= f.collection_select :source_id, Source.all, :id, :name %></span>

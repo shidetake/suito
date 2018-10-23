@@ -16,6 +16,11 @@ class TransactionsController < ApplicationController
   def update
     transaction = Transaction.find(params[:transaction][:id])
 
+    params[:transaction][:store_id] = Store.find_by(name: params[:transaction][:store_name])&.id
+
+    parent_category_id = Category.find_by(name: params[:transaction][:parent_category_name])&.id
+    params[:transaction][:category_id] = Category.find_by(name: params[:transaction][:category_name], parent_id: parent_category_id)&.id
+
     if transaction.update_attributes(transaction_params)
       flash[:success] = "Transaction updated"
       redirect_to current_user
