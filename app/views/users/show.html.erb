@@ -26,8 +26,8 @@
           </span>
           /
           <span class="store">
-            <%= f.label :store_id_eq, 'store:' %>
-            <%= f.collection_select :store_id_eq, Store.all, :id, :name, include_blank: true %>
+            <%= f.label :store_name_cont, 'store:' %>
+            <%= f.search_field :store_name_cont %>
           </span>
           /
           <span class="group">
