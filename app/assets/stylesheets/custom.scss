@@ -227,9 +227,18 @@ input {
     }
   }
   .category {
+    input {
+      width: 7%;
+    }
     select {
       width: 7%;
     }
+  }
+  .genre {
+    @extend .category;
+  }
+  .store {
+    @extend .category;
   }
   .yen {
     input {
