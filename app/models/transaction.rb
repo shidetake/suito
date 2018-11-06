@@ -11,7 +11,7 @@ class Transaction < ApplicationRecord
   end
 
   def store_name
-    store.name
+    store.nil? ? '' : store.name
   end
 
   def category_name
