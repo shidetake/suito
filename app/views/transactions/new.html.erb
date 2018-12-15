@@ -8,7 +8,7 @@
       <span class="valid_record"><%= f.hidden_field :valid_record, value: true %></span>
 
       <div class="timestamp">
-        <%= f.text_field :created_at, data: { date_format: 'YYYY/MM/DD' }, class: 'datetimepicker', placeholder: 'YYYY/MM/DD' %>
+        <%= f.text_field :created_at, data: { date_format: 'YYYY/MM/DD' }, class: 'date-picker', placeholder: 'YYYY/MM/DD' %>
       </div>
 
       <div class="genre"><%= f.collection_select :category_id, Category.all, :id, :name %></div>

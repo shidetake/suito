@@ -4,7 +4,7 @@
     <span class="id"><%= f.hidden_field :id, value: transaction.id %></span>
     <span class="valid_record"><%= f.check_box :valid_record %></span>
     <span class="timestamp">
-      <%= f.text_field :created_at, data: { date_format: 'YYYY/MM/DD' }, class: 'datetimepicker', placeholder: 'YYYY/MM/DD' %>
+      <%= f.text_field :created_at, data: { date_format: 'YYYY/MM/DD' }, class: 'date-picker', placeholder: 'YYYY/MM/DD' %>
     </span>
     <span class="category"><%= f.text_field :parent_category_name %></span>
     <span class="genre"><%= f.text_field :category_name %></span>
