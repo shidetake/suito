@@ -7,10 +7,10 @@
         <li>
           <span class="timestamp">
             <%= f.label :created_at_gteq_beginning_of_day, 'date:' %>
-            <%= f.search_field :created_at_gteq_beginning_of_day, data: { date_format: 'YYYY/MM/DD' }, class: 'date_picker_start', placeholder: 'YYYY/MM/DD' %>
+            <%= f.search_field :created_at_gteq_beginning_of_day, data: { date_format: 'YYYY/MM/DD' }, class: 'date_picker_start', placeholder: 'YYYY/MM/DD', autocomplete: 'off' %>
 
             <%= f.label :created_at_lteq_end_of_day, '〜' %>
-            <%= f.search_field :created_at_lteq_end_of_day, data: { date_format: 'YYYY/MM/DD' }, class: 'date_picker_end', placeholder: 'YYYY/MM/DD' %>
+            <%= f.search_field :created_at_lteq_end_of_day, data: { date_format: 'YYYY/MM/DD' }, class: 'date_picker_end', placeholder: 'YYYY/MM/DD', autocomplete: 'off' %>
           </span>
           /
           <span class="content">
