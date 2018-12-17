@@ -24,7 +24,7 @@ class TransactionsController < ApplicationController
     end
 
     flash[:success] = 'Transaction updated' if transaction.update_attributes(transaction_params)
-    redirect_to current_user
+    redirect_to request.referer
   end
 
   private
