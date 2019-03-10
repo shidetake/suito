@@ -1,5 +1,5 @@
 <li id="transaction-<%= transaction.id %>">
-  <%= form_for(transaction, url: transaction_path ) do |f| %>
+  <%= form_for(transaction, url: transaction_path) do |f| %>
     <%= render 'shared/error_messages', object: transaction %>
     <span class="id"><%= f.hidden_field :id, value: transaction.id %></span>
     <span class="valid_record"><%= f.check_box :valid_record %></span>
