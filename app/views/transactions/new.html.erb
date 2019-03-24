@@ -14,7 +14,7 @@
       <span class="category"><%= f.collection_select :category_id, Category.where(parent: nil), :id, :name %></span>
       <div class="genre"><%= f.collection_select :category_id, Category.genre, :id, :name %></div>
 
-      <div class="store"><%= f.collection_select :store_id, Store.all, :id, :name %></div>
+      <div class="store"><%= f.text_field :store_name %></div>
 
       <%= f.label :content %>
       <%= f.text_field :content, class: 'form-control' %>

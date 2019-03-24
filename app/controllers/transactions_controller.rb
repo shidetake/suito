@@ -4,6 +4,7 @@ class TransactionsController < ApplicationController
   end
 
   def create
+    params[:transaction][:store_id] = get_or_create_store_id(params[:transaction][:store_name])
     @transaction = current_user.transactions.build(transaction_params)
     if @transaction.save
       flash[:success] = 'Transaction created!'
