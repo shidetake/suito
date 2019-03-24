@@ -11,7 +11,9 @@
         <%= f.text_field :created_at, data: { date_format: 'YYYY/MM/DD' }, class: 'date_picker_start', placeholder: 'YYYY/MM/DD' %>
       </div>
 
-      <div class="genre"><%= f.collection_select :category_id, Category.all, :id, :name %></div>
+      <span class="category"><%= f.collection_select :category_id, Category.where(parent: nil), :id, :name %></span>
+      <div class="genre"><%= f.collection_select :category_id, Category.genre, :id, :name %></div>
+
       <div class="store"><%= f.collection_select :store_id, Store.all, :id, :name %></div>
 
       <%= f.label :content %>
