@@ -16,12 +16,7 @@ class TransactionsController < ApplicationController
   def update
     transaction = Transaction.find(params[:transaction][:id])
 
-    params[:transaction][:store_id] = Store.find_by(name: params[:transaction][:store_name])&.id
-    if params[:transaction][:store_id].nil?
-      # create store record if it is not exist
-      store = Store.create(name: params[:transaction][:store_name])
-      params[:transaction][:store_id] = store.id
-    end
+    params[:transaction][:store_id] = get_or_create_store_id(params[:transaction][:store_name])
 
     flash[:success] = 'Transaction updated' if transaction.update_attributes(transaction_params)
     redirect_to request.referer
@@ -40,5 +35,14 @@ class TransactionsController < ApplicationController
                                         :group_id,
                                         :wallet_id,
                                         :memo)
+  end
+
+  def get_or_create_store_id(name)
+    if Store.exists?(name: name)
+      Store.find_by(name: name).id
+    else
+      # create store record if it is not exist
+      Store.create(name: name).id
+    end
   end
 end
