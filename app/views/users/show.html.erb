@@ -1,7 +1,7 @@
 <% provide(:title, @user.name) %>
 <div class="row">
   <div class="col-md-12">
-    <%= button_to 'add', new_transaction_path, method: :get, class: "btn btn-primary btn-sm" %>
+    <%= button_to 'add', new_transaction_path, method: :get, class: "btn btn-primary btn-sm", params: { date: @transactions.first&.created_at } %>
     <%= search_form_for @q, url: @user do |f| %>
       <ul class="search_form">
         <li>
