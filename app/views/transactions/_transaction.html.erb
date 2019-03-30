@@ -12,7 +12,7 @@
     <span class="content"><%= f.text_field :content %></span>
     <span class="yen">¥<%= f.text_field :yen %></span>
     <span class="source"><%= f.collection_select :source_id, Source.all, :id, :name %></span>
-    <span class="group"><%= f.collection_select :group_id, Group.all, :id, :name  %></span>
+    <span class="group"><%= f.collection_select :group_id, Group.all.order(created_at: 'DESC'), :id, :name  %></span>
     <span class="memo"><%= f.text_field :memo %></span>
     <span class="save"><%= f.submit 'save', class: "btn btn-primary btn-sm" %></span>
   <% end %>
