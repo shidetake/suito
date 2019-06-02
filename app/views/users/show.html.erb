@@ -22,6 +22,9 @@
         <li>
           <span class="category">
             <%= f.label :category_id_eq, 'category:' %>
+            <%= f.collection_select :category_id_eq, Category.where(parent: nil), :id, :name, include_blank: true %>
+          </span>
+          <span class="genre">
             <%= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: true %>
           </span>
           /
