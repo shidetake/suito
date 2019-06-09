@@ -9,15 +9,15 @@ gem 'faker',                           '1.7.3'
 gem 'jbuilder',                        '2.7.0'
 gem 'jquery-rails',                    '4.3.1'
 gem 'jquery-ui-rails',                 '6.0.1'
-gem 'mysql2',                          '~> 0.3.20'
+gem 'mysql2',                          '0.5.2'
 gem 'puma',                            '3.9.1'
-gem 'rails',                           '5.1.4'
+gem 'rails'
 gem 'rails-i18n',                      '5.1.0'
 gem 'ransack'
 gem 'sass-rails',                      '5.0.6'
 gem 'turbolinks',                      '5.0.1'
 gem 'uglifier',                        '3.2.0'
-gem 'will_paginate',                   '3.1.6'
+gem 'will_paginate'
 
 group :development, :test do
   gem 'byebug',  '9.0.6', platform: :mri
