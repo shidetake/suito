@@ -1,0 +1,18 @@
+<% provide(:title, 'New group') %>
+<h1>New group</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@group) do |f| %>
+      <%= render 'shared/error_messages', object: @group %>
+
+      <div class="timestamp">
+        <%= f.text_field :created_at, data: { date_format: 'YYYY/MM/DD' }, class: 'date_picker_start', placeholder: 'YYYY/MM/DD', autocomplete: 'off' %>
+      </div>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.submit 'add', class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

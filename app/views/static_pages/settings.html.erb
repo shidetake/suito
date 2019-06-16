@@ -1,0 +1,6 @@
+<% provide(:title, "Settings") %>
+<h1>Settings</h1>
+<p>
+  <li><%= link_to "Update profile", edit_user_path(current_user) %></li>
+  <li><%= link_to "Add group", new_group_path %></li>
+</p>
