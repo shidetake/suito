@@ -12,9 +12,9 @@
 //
 //= require rails-ujs
 //= require jquery
+//= require jquery-ui/i18n/datepicker-ja
+//= require jquery-ui/widgets/datepicker
+//= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
-//= require jquery-ui/widgets/datepicker
-//= require jquery-ui/i18n/datepicker-ja
-//= require jquery_ujs
