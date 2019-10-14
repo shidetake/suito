@@ -62,7 +62,7 @@
       </ul>
     <% end %>
     <% if @transactions.any? %>
-      <h3>Transactions (<%= @transactions.count %>)</h3>
+      <h3>Transactions (<%= @transactions.count %>件) 計<%= @transactions.sum(:yen) %>円</h3>
       <ol class="transactions">
         <%= render @transactions %>
       </ol>
