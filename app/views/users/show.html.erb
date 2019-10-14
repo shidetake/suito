@@ -38,6 +38,11 @@
             <%= f.search_field :store_name_cont %>
           </span>
           /
+          <span class="source">
+            <%= f.label :source_id_eq, 'source:' %>
+            <%= f.collection_select :source_id_eq, Source.all, :id, :name, include_blank: true %>
+          </span>
+          /
           <span class="group">
             <%= f.label :group_id_eq, 'group:' %>
             <%= f.collection_select :group_id_eq, Group.all, :id, :name, include_blank: true %>
