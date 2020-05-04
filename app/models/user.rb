@@ -1,5 +1,18 @@
 class User < ApplicationRecord
-  has_many :transactions, dependent: :destroy
+  has_many :transactions, dependent: :destroy do
+    def source(flag)
+      case flag
+      when :all then self
+      when :hide then not_nae.not_central
+      when :central then central
+      else self
+      end
+    end
+
+    def not_central_if(flag)
+      flag ? not_central : self
+    end
+  end
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
   before_create :create_activation_digest

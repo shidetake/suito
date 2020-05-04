@@ -1,0 +1,26 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <div class="col-md-12">
+    <%= form_with url: analysis_path, method: :get, local: true do |f| %>
+      <%= f.text_field :year %>
+      <%= f.submit 'update' %>
+    <% end %>
+
+    <h2><%= params['year'] %>年</h2>
+
+    <h3>全体</h3>
+    <%= column_chart @sum_category_yearly, legend: 'right', stacked: true, width: '300px', height: '1000px' %>
+    支出合計: <%= @sum_yearly %>円
+    <%= column_chart @sum_category, legend: 'right', stacked: true, height: '1000px' %>
+
+    <h3>セントラル</h3>
+    <%= column_chart @sum_category_yearly_central, legend: 'right', stacked: true, width: '300px', height: '1000px' %>
+    支出合計: <%= @sum_yearly_central %>円
+    <%= column_chart @sum_category_central, legend: 'right', stacked: true, height: '1000px' %>
+
+    <h3>個人</h3>
+    <%= column_chart @sum_category_yearly_hide, legend: 'right', stacked: true, width: '300px', height: '1000px' %>
+    支出合計: <%= @sum_yearly_hide %>円
+    <%= column_chart @sum_category_hide, legend: 'right', stacked: true, height: '1000px' %>
+  </div>
+</div>
