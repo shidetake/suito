@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     # デフォルトでは有効データだけを表示
     @q.valid_record_true = 'true' unless params[:q]
 
-    @transactions = @q.result.paginate(page: params[:page]).order(created_at: "DESC")
+    @transactions = @q.result.paginate(page: params[:page]).order(created_at: "DESC", id: "ASC")
   end
   
   def new
