@@ -14,8 +14,8 @@ class Transaction < ApplicationRecord
   scope :total, -> { sum(:yen) }
   scope :month, ->(year, month) { where(transactions: {created_at: Time.new(year, month, 1).all_month}) }
   scope :not_nae, -> { where.not(transactions: {source_id: [18, 20]}) }
-  scope :not_central, -> { where.not(transactions: {source_id: [5, 7, 16, 23, 25]}) }
-  scope :central, -> { where(transactions: {source_id: [5, 7, 16, 23, 25]}) }
+  scope :not_central, -> { where.not(transactions: {source_id: [5, 7, 16, 23, 25, 26, 30]}) }
+  scope :central, -> { where(transactions: {source_id: [5, 7, 16, 23, 25, 26, 30]}) }
 
   def parent_category_id
     category.parent.nil? ? category_id : category.parent.id
