@@ -12,6 +12,10 @@
     <%= column_chart @sum_category_yearly, legend: 'right', stacked: true, width: '300px', height: '1000px' %>
     支出合計: <%= @sum_yearly %>円
     <%= column_chart @sum_category, legend: 'right', stacked: true, height: '1000px' %>
+    <%= column_chart @sum_energy, legend: 'right', stacked: false, colors: ["yellow", "blue", "red"] %>
+    光熱費合計: <%= @sum_yearly_energy %>円 / 平均: <%= @sum_yearly_energy / 12 %>円/月
+    <%= column_chart @sum_entertainment_yearly, legend: 'right', stacked: true, width: '300px', height: '1000px' %>
+    <%= column_chart @sum_group, legend: 'right', stacked: true, height: '1000px' %>
 
     <h3>セントラル</h3>
     <%= column_chart @sum_category_yearly_central, legend: 'right', stacked: true, width: '300px', height: '1000px' %>

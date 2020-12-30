@@ -7,7 +7,9 @@ class Transaction < ApplicationRecord
   belongs_to :wallet
 
   scope :with_category, -> { includes(:category) }
+  scope :category_id, ->(category_id) { where(transactions: {category_id: category_id}) }
   scope :parent_id, ->(parent_id) { where(categories: {parent_id: parent_id}) }
+  scope :group_id, ->(group_id) { where(transactions: {group_id: group_id}) }
   scope :valid, -> { where(transactions: {valid_record: 1}) }
   scope :total, -> { sum(:yen) }
   scope :month, ->(year, month) { where(transactions: {created_at: Time.new(year, month, 1).all_month}) }
