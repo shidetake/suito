@@ -149,6 +149,7 @@ class AnalysisController < ApplicationController
     toy     = {}
     camera  = {}
     travel  = {}
+    night   = {}
     darts   = {}
     (1..12).each do |m|
       leisure[m.to_s] = -@user.transactions.valid.not_nae.month(year, m).category_id( 3590269).total
@@ -166,6 +167,7 @@ class AnalysisController < ApplicationController
       toy[m.to_s]     = -@user.transactions.valid.not_nae.month(year, m).category_id( 9620455).total
       camera[m.to_s]  = -@user.transactions.valid.not_nae.month(year, m).category_id( 9620456).total
       travel[m.to_s]  = -@user.transactions.valid.not_nae.month(year, m).category_id( 9620476).total
+      night[m.to_s]   = -@user.transactions.valid.not_nae.month(year, m).category_id(29363524).total
       darts[m.to_s]   = -@user.transactions.valid.not_nae.month(year, m).category_id(70703902).total
     end
     sum_entertainment << { name: 'レジャー',     data: leisure }
@@ -183,6 +185,7 @@ class AnalysisController < ApplicationController
     sum_entertainment << { name: 'おもちゃ',     data: toy     }
     sum_entertainment << { name: 'カメラ',       data: camera  }
     sum_entertainment << { name: '旅行',         data: travel  }
+    sum_entertainment << { name: '風俗',         data: night   }
     sum_entertainment << { name: 'ダーツ',       data: darts   }
 
     sum_entertainment_yearly << { name: 'レジャー',     data: { '支出' => leisure.values.inject(:+) } }
@@ -200,6 +203,7 @@ class AnalysisController < ApplicationController
     sum_entertainment_yearly << { name: 'おもちゃ',     data: { '支出' => toy.values.inject(:+) } }
     sum_entertainment_yearly << { name: 'カメラ',       data: { '支出' => camera.values.inject(:+) } }
     sum_entertainment_yearly << { name: '旅行',         data: { '支出' => travel.values.inject(:+) } }
+    sum_entertainment_yearly << { name: '風俗',         data: { '支出' => night.values.inject(:+) } }
     sum_entertainment_yearly << { name: 'ダーツ',       data: { '支出' => darts.values.inject(:+) } }
 
     [sum_entertainment, sum_entertainment_yearly]
