@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_23_071632) do
+ActiveRecord::Schema.define(version: 2021_05_23_092758) do
 
   create_table "categories", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2021_05_23_071632) do
   create_table "transactions", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "zaim_id"
     t.string "mf_id"
+    t.bigint "bitflyer_id"
     t.boolean "valid_record", default: true
     t.text "content"
     t.integer "yen", null: false
