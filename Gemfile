@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'acts_as_tree',                    '2.7.1'
 gem 'bcrypt',                          '3.1.11'
-gem 'bootstrap-sass',                  '3.3.7'
+gem 'bootstrap-sass',                  '3.4.1'
 gem 'bootstrap-will_paginate',         '1.0.0'
 gem 'chartkick'
 gem 'coffee-rails',                    '4.2.2'
